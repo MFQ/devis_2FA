@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  post 'users/enable_otp'
+  post 'users/disable_otp'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

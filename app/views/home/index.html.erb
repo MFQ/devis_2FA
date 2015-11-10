@@ -1,2 +1,14 @@
 <h1>Home#index</h1>
 <%= link_to "Log in", new_user_session_path unless current_user %>
+
+  <% if current_user %>
+    <%= button_to "Enable 2FA", users_enable_otp_path, :method => :post if !current_user.otp_required_for_login %>
+    <% if current_user.otp_required_for_login %>
+      <%= button_to "Disable 2FA", users_disable_otp_path, :method => :post %>
+      <%= raw RQRCode::render_qrcode(current_user.otp_provisioning_uri(current_user.email, issuer: "Devise-Two-Factor-Demo"),
+                                     :svg,
+                                     :level => :l,
+                                     :unit => 2) %>
+      <br>
+    <% end %>
+  <% end %>
