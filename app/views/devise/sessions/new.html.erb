@@ -11,7 +11,9 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div><%= f.label :otp_attempt %><br />
+  <input type="checkbox" onchange="$('#otp-attempt').toggle()"> enable Otp attempt
+
+  <div id="otp-attempt" style="display:none;" ><%= f.label :otp_attempt %><br />
     <%= f.text_field :otp_attempt %>
   </div>
 
