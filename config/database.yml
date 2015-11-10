@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
-#   <<: *default
-#   database: devis_2FA_production
-#   username: devis_2FA
-#   password: <%= ENV['DEVIS_2FA_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
+  database: devis_2FA_production
+  # username: devis_2FA
+  # password: <%= ENV['DEVIS_2FA_DATABASE_PASSWORD'] %>
